@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color:rgb(73, 37, 133) ;
+        }
+
+        .flex-container>div {
+            background-color: goldenrod;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: red;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Bhavya Tatavarthi Builds a merger</h1>
+
+    <div class="flex-container" id="target">
+        <div>row item 1</div>
+        <div>row item 2</div>
+        <div>row item 3</div>
+    </div><br>
+
+    <input type="text" id="inputText" placeholder="Enter text">
+    <button onclick="addEnd()">Add end</button>
+    <button onclick="addFront()">Add front</button>
+    <button onclick="remove()">Remove</button>
+
+</body>
+
+<script>
+
+    function addEnd() {
+
+        inputText = document.getElementById("inputText").value;
+        element = document.createElement("div");
+        element.innerHTML = inputText;
+        element.className = "merger";
+        container = document.getElementById('target');
+        container.appendChild(element);
+    }
+
+    function addFront() {
+
+        inputText = document.getElementById("inputText").value;
+        element = document.createElement("div");
+        element.innerHTML = inputText;
+        element.className = "merger";
+        container = document.getElementById('target');
+        firstChild = container.firstChild;
+        container.insertBefore(element, firstChild);
+    }
+
+ 
+
+    function remove() {
+
+        mergerItems = document.getElementsByClassName("merger");
+        length = mergerItems.length;
+
+        if (length > 0) {
+            middleIndex = Math.floor(length / 2);
+            mergerItems[middleIndex].remove();
+        }
+
+    }
+
+</script>
+
+</html>
