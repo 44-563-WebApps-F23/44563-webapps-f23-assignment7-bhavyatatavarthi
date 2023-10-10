@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
     <h1>Bhavya Tatavarthi speed check</h1>
     <div id="target">Your time: Waiting for reaction...</div>
     <div id="counter">Count: 0</div>
@@ -29,11 +28,9 @@
         }
 
         function buttonPress2() {
-
             setTimeout(() => {
                 document.getElementById('target').style.color = "red"
             }, 3000)
-
         }
 
         startTime;
@@ -58,13 +55,10 @@
                     const endTime = Date.now();
                     const elapsed = endTime - startTime;
                     document.getElementById("target").textContent = "Time was " + elapsed + " ms";
-
                 }
 
             }, 8000);
-
             startTime = Date.now();
-
         }
 
         function recordTime() {
