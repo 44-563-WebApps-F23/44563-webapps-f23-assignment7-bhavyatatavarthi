@@ -42,23 +42,13 @@
     <button onclick="addEnd()">Add end</button>
     <button onclick="addFront()">Add front</button>
     <button onclick="remove()">Remove</button>
-    <button onclick="makeNewDiv()">Add one</button>
+    
 
 </body>
 
 <script>
 
-function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
 
-		/* add it to the container */
-		let container = document.getElementById('target')
-		container.appendChild(element)
-		
-	}
     function addEnd() {
 
         inputText = document.getElementById("inputText").value;
