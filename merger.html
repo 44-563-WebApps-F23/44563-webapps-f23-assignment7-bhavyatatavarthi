@@ -47,10 +47,7 @@
 </body>
 
 <script>
-
-
     function addEnd() {
-
         inputText = document.getElementById("inputText").value;
         element = document.createElement("div");
         element.innerHTML = inputText;
@@ -58,9 +55,7 @@
         container = document.getElementById('target');
         container.appendChild(element);
     }
-
     function addFront() {
-
         inputText = document.getElementById("inputText").value;
         element = document.createElement("div");
         element.innerHTML = inputText;
@@ -69,21 +64,14 @@
         firstChild = container.firstChild;
         container.insertBefore(element, firstChild);
     }
-
- 
-
     function remove() {
-
         mergerItems = document.getElementsByClassName("merger");
         length = mergerItems.length;
-
         if (length > 0) {
             middleIndex = Math.floor(length / 2);
             mergerItems[middleIndex].remove();
         }
-
     }
-
 </script>
 
 </html>
