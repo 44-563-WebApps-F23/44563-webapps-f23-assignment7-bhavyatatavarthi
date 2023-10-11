@@ -33,9 +33,9 @@
             }, 3000)
         }
 
-        startTime=0;
-        reactTime=0;
-        countdownInterval=0;
+        var startTime=0;
+        var reactTime=0;
+        var countdownInterval=0;
 
         function startCountdown() {
 
@@ -46,28 +46,28 @@
             }
 
             setTimeout(function () {
-
-                if (reactTime === undefined) {
+                  console.log("reactTime",reactTime);
+                if (reactTime == undefined) {
                     document.getElementById("target").textContent = "Too Slow";
                 } 
 
                 else {
-                    const endTime = Date.now();
-                    const elapsed = endTime - startTime;
+                    var endTime = Date.now();
+                    var elapsed = endTime - startTime;
                     document.getElementById("target").textContent = "Time was " + elapsed + " ms";
                 }
-
             }, 8000);
             startTime = Date.now();
         }
 
         function recordTime() {
-
-            if (startTime) {
-                reactTime = Date.now() - startTime;
-                document.getElementById("target").textContent = "Your time: " + reactTime + " ms";
+                console.log('startTime',startTime)
+            if (startTime) {   
+                reactTime = Date.now()-startTime;
+                console.log('Reaction time recorded:'+reactTime);
+               // document.getElementById("target").textContent = "Your time: " + reactTime + " ms";
                 clearInterval(countdownInterval);
-                startTime = undefined;
+                //startTime ;            
             }
         }
     </script>
