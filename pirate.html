@@ -115,7 +115,6 @@
     </div>
 
     <script>
-
         const ids = [
             "image0", "image1", "image2", "image3", "image4",
             "image5", "image6", "image7", "image8", "image9",
@@ -123,23 +122,19 @@
             "image15", "image16", "image17", "image18", "image19",
             "image20", "image21", "image22", "image23", "image24"
         ];
-
         checkCount = 0;
         penalty = 0;
         lastCheck = 0;
         treasureLocation = 5;
         trapLocation = 18;
         gameOver = false;
-
         function check(position) {
             if (gameOver) {
                 return;
             }
-
             const imageId = ids[position];
             console.log(imageId)
             const imageElement = document.getElementById(imageId);
-
             if (position === treasureLocation) {
                 imageElement.src = "img2.jpg";
             }
@@ -149,31 +144,22 @@
              else {
                 imageElement.src = "img4.jpg";
             }
-
             checkCount++;
             penalty++;
-
             document.getElementById("locations").textContent = 'Number of locations checked is ${checkCount}.';
-
             if (position === treasureLocation) {
                 gameOver = true;
                 penalty -= 3;
             }
-
             if (position === trapLocation) {
                 gameOver = true;
                 penalty += 4;
-
             }
-
             document.getElementById("penalty").textContent = `Penalty is ${penalty}.`;
             lastCheck = position;
             if (gameOver) {
-
             }
-
             function help() {
-
                 if (gameOver) return;
                 rowTreasure = Math.floor(treasureLocation / 5);
                 colTreasure = treasureLocation % 5;
@@ -182,8 +168,7 @@
                 rowDiff = Math.abs(rowTreasure - rowLastCheck);
                 colDiff = Math.abs(colTreasure - colLastCheck);
                 var helpResult = "";
-
-                if (rowDiff + colDiff === 1) {
+                if ((rowDiff === 1 && colDiff === 0)||(rowDiff === 0 && colDiff === 1)) {
                     helpResult = "Can smell it";
                     penalty += 2;
                 }
@@ -195,12 +180,9 @@
                     helpResult = "Step Faster";
                     penalty += 2;
                 }
-
                 document.getElementById("penalty").textContent = `Penalty is ${penalty}.`;
                 document.getElementById("help").textContent = `Help report: ${helpResult}.`;
-
             }
-
                 document.getElementById("helpButton").onclick = help;
         }
 
