@@ -20,6 +20,7 @@
     <p id="locations" class="text-info bg-dark">Number of locations checked is zero</p>
     <p id="penalty" class="text-light bg-dark">Penalty is zero.</p>
     <button id="helpButton" class="text-primary-emphasis">Click for Help</button>
+    <button id="newGameButton" class="text-warning-emphasis">New Game</button>
 
     <p id="help" class="text-danger">Help report</p>
     <div class="container mt-5">
@@ -186,6 +187,30 @@
                 document.getElementById("helpButton").onclick = help;
         }
 
+        function initializeLocations() {
+            treasureLocation = Math.floor(Math.random() * 25);
+            trapLocation = Math.floor(Math.random() * 25);
+            while (treasureLocation === trapLocation) {
+                trapLocation = Math.floor(Math.random() * 25);
+            }
+        }
+        function resetGame() {
+
+initializeLocations();
+checkCount = 0;
+penalty = 0;
+lastCheck = 0;
+gameOver = false;
+for (let i = 0; i < ids.length; i++) {
+    const imageElement = document.getElementById(ids[i]);
+    imageElement.src = "img1.jpg";
+}
+document.getElementById("locations").textContent = "Number of locations checked is zero.";
+document.getElementById("penalty").textContent = "Penalty is zero.";
+document.getElementById("help").textContent = "Help report:";
+}
+document.getElementById("newGameButton").addEventListener("click", resetGame);
+initializeLocations();
     </script>
 </body>
 </html>
