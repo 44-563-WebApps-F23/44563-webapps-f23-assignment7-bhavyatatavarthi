@@ -17,29 +17,18 @@
 <button id="react">React</button>
 <script>
         let reactTime = undefined;
-
- 
-
 function recordTime() {
   reactTime = Date.now();
   console.log(reactTime);
 }
-
- 
-
 document.getElementById("react").onclick = recordTime;
-
- 
-
 function startTime() {
-  for (let i = 0; i < 9; i++) {
+    const countdownDuration = Math.floor(Math.random()*9)+2;
+  for (let i = 0; i < countdownDuration; i++) {
     setTimeout(function () {
       document.getElementById("counter").innerHTML = i;
-    }, (8 - i) * 1000);
+    }, (countdownDuration - i) * 1000);
   }
-
- 
-
   setTimeout(function () {
     if (reactTime === undefined) {
       document.getElementById("target").innerHTML = "Too Slow";
@@ -50,9 +39,6 @@ function startTime() {
     }
   }, 8000);
 }
-
- 
-
 document.getElementById("startTimer").onclick = startTime;
 </script>
 </body>
